@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute();
             return [
                 'success' => true,
-                'message' => '' + $identifiant
+                'message' => '' . $identifiant
             ];
         } catch (PDOException $e) {
             return ['success' => false, 'message' => 'Erreur lors de l\'inscription: ' . $e->getMessage()];
