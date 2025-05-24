@@ -4,7 +4,10 @@ COPY . /var/www/html/
 
 RUN a2enmod rewrite
 
-# Installe les extensions PDO (MySQL et POSTGRES)
+# Ajoute cette ligne pour installer les headers PostgreSQL nécessaires
+RUN apt-get update && apt-get install -y libpq-dev
+
+# Puis installe l’extension PDO_PGSQL
 RUN docker-php-ext-install pdo pdo_pgsql
 
 EXPOSE 80
